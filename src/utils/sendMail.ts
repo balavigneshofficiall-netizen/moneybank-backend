@@ -1,11 +1,5 @@
 
-
 import { sendMailOtpp } from "./orderemailTemplate";
-
-
-
-
-
 const brevo = require('@getbrevo/brevo');
 let defaultClient = brevo.ApiClient.instance;
 let apiKey = defaultClient.authentications['api-key'];
@@ -23,7 +17,6 @@ export async function sendMailOtp(email: string, name: string, otp: string) {
     const response = await apiInstance.sendTransacEmail(sendSmtpEmail);
     console.log("========== BREVO SUCCESS RESPONSE ==========");
     console.log(response);
-
     console.log("========== BREVO EMAIL DEBUG END ==========");
   } catch (err: any) {
     console.log("========== BREVO ERROR RESPONSE ==========");
