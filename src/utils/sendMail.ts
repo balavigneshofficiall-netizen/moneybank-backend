@@ -16,12 +16,10 @@ let sendSmtpEmail = new brevo.SendSmtpEmail();
 export async function sendMailOtp(email: string, name: string, otp: string) {
   try {
     const fromEmail = "bankmoneybv@gmail.com"
-
     sendSmtpEmail.subject = "testmail";
     sendSmtpEmail.htmlContent = sendMailOtpp(email, name, otp)
     sendSmtpEmail.sender = { name: "testing", email: fromEmail };
     sendSmtpEmail.to = [{ email: "balavignesh844@gmail.com", name: "balavignesh" }];
-
     const response = await apiInstance.sendTransacEmail(sendSmtpEmail);
     console.log("========== BREVO SUCCESS RESPONSE ==========");
     console.log(response);
