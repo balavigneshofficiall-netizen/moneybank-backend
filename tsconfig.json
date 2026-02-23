@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "ES2020",
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "rootDir": "./src",
+    "outDir": "dist",
+    "strict": true,
+    "allowJs": true,
+    "noEmit": false,
+    "removeComments": true,
+    "baseUrl": "src",
+    "lib": [
+      "es2022"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types",
+      "./src/types"
+    ],
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "src/interface/*",
+      ]
+    }
+  },
+  "compileOnSave": false,
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "tests"
+  ]
+}

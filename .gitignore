@@ -1,0 +1,6 @@
+/feed
+/images
+/node_modules
+/video
+dist/
+.env

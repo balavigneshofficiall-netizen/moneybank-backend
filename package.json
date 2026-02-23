@@ -1,0 +1,43 @@
+{
+  "name": "moneybank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev src/moneybank.ts",
+    "build": "tsc --project ./",
+    "deploy": "git pull /moneybank_api.git master && npm install && npx prisma generate && tsc --project ./ &&  forever stop  dist/moneybank.js && forever start dist/moneybank.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/moment-timezone": "^0.5.30",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.8.0",
+    "@types/nodemailer": "^7.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@getbrevo/brevo": "^1.0.1",
+    "@prisma/client": "^6.16.3",
+    "axios": "^1.12.2",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "moment-timezone": "^0.6.0",
+    "multer": "^2.0.2",
+    "mysql2": "^3.16.0",
+    "node-mailjet": "^6.0.9",
+    "nodemailer": "^7.0.6",
+    "pg": "^8.16.3",
+    "prisma": "^6.16.3",
+    "read-excel-file": "^6.0.1"
+  }
+}

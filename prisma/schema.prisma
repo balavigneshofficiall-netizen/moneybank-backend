@@ -1,0 +1,52 @@
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model bank_user {
+    id           Int                @id @default(autoincrement())
+    name         String
+    phone        String
+    password     String
+    email        String
+    image        String             @default("NA")
+    otp          String?
+    role         String             @default("user")
+    createdOn    DateTime           @default(now())
+    transactions bank_transaction[]
+}
+
+model bank_category {
+    id           Int                @id @default(autoincrement())
+    name         String
+    createdOn    DateTime           @default(now())
+    transactions bank_transaction[]
+}
+
+model bank_transaction {
+    id          Int      @id @default(autoincrement())
+    userId      Int
+    categoryId  Int
+    mode        String
+    amount      Int
+    description String?
+    time        String
+    date        DateTime @default(now())
+    createdOn   DateTime @default(now())
+
+    user     bank_user     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    category bank_category @relation(fields: [categoryId], references: [id])
+}
+
+model bank_admin {
+    id        Int      @id @default(autoincrement())
+    name      String
+    phone     String
+    password  String
+    role      String   @default("admin")
+    createdOn DateTime @default(now())
+}
